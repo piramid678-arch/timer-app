@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>OG Image Generator</title>
+</head>
+
+<body style="background:#000; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0;">
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Background
+        const bgGrad = ctx.createLinearGradient(0, 0, 1200, 630);
+        bgGrad.addColorStop(0, '#1a1a2e');
+        bgGrad.addColorStop(1, '#16213e');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, 1200, 630);
+
+        // Glow effect
+        const glow = ctx.createRadialGradient(600, 300, 50, 600, 300, 350);
+        glow.addColorStop(0, 'rgba(233, 69, 96, 0.15)');
+        glow.addColorStop(1, 'rgba(233, 69, 96, 0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, 1200, 630);
+
+        // Progress ring
+        ctx.beginPath();
+        ctx.arc(600, 300, 160, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(233, 69, 96, 0.2)';
+        ctx.lineWidth = 14;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(600, 300, 160, -Math.PI / 2, -Math.PI / 2 + Math.PI * 1.6);
+        ctx.strokeStyle = '#e94560';
+        ctx.lineWidth = 14;
+        ctx.lineCap = 'round';
+        ctx.shadowColor = '#e94560';
+        ctx.shadowBlur = 20;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Timer text
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 90px Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('25:00', 600, 305);
+
+        // Title
+        ctx.font = 'bold 48px Arial, sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('오늘의 집중', 600, 80);
+
+        // Subtitle
+        ctx.font = '24px Arial, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fillText('무료 온라인 뽀모도로 타이머', 600, 540);
+
+        // Streak badge
+        ctx.fillStyle = 'rgba(251, 191, 36, 0.15)';
+        ctx.beginPath();
+        ctx.roundRect(900, 60, 220, 50, 25);
+        ctx.fill();
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = '22px Arial, sans-serif';
+        ctx.fillText('🔥 연속 달성 추적', 1010, 88);
+
+        // Features
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.font = '20px Arial, sans-serif';
+        ctx.fillText('집중 기록 📊  ·  연속 달성 🔥  ·  주간 통계 📈', 600, 585);
+
+        // Download link
+        const link = document.createElement('a');
+        link.download = 'og-image.png';
+        link.href = canvas.toDataURL('image/png');
+        link.textContent = '⬇️ 이미지 다운로드';
+        link.style.cssText = 'display:block; text-align:center; margin-top:20px; color:#e94560; font-size:20px; font-family:sans-serif;';
+        document.body.appendChild(link);
+        link.click();
+    </script>
+</body>
+
+</html>
