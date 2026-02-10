@@ -479,6 +479,58 @@ header p {
     transform: translateY(-2px);
 }
 
+/* ===== Share Section ===== */
+.share-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
+    margin-bottom: 2rem;
+}
+
+.share-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--card-bg);
+    color: white;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-btn.fb:hover {
+    background: #1877f2;
+}
+
+.share-btn.tw:hover {
+    background: #000000;
+}
+
+.share-btn.copy:hover {
+    background: var(--primary-color);
+}
+
 /* ===== Footer ===== */
 footer {
     margin-top: 1rem;

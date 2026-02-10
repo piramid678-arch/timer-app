@@ -326,6 +326,27 @@ chips.forEach(chip => {
     });
 });
 
+// ===== SNS 공유 기능 =====
+document.getElementById('share-facebook').addEventListener('click', () => {
+    const url = window.location.href;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=600,height=400');
+});
+
+document.getElementById('share-twitter').addEventListener('click', () => {
+    const url = window.location.href;
+    const text = "⏱️ 오늘의 집중 - 집중력을 높여주는 무료 온라인 타이머!";
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=600,height=400');
+});
+
+document.getElementById('share-copy').addEventListener('click', () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        alert("링크가 복사되었습니다! 원하는 곳에 붙여넣으세요.");
+    }).catch(err => {
+        console.error('링크 복사 실패:', err);
+    });
+});
+
 // ===== 초기화 =====
 updateDisplay();
 updateStatsUI();
