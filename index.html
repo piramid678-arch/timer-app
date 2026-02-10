@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온라인 타이머</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>오늘의 집중</h1>
+            <p>목표를 향해 나아가는 시간입니다.</p>
+        </header>
+
+        <main>
+            <div class="timer-display">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle" stroke="white" stroke-width="12" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+                <div class="time" id="time-display">25:00</div>
+            </div>
+
+            <div class="controls">
+                <button id="start-btn" class="btn primary">시작</button>
+                <button id="pause-btn" class="btn secondary" disabled>일시정지</button>
+                <button id="reset-btn" class="btn tertiary">초기화</button>
+            </div>
+
+            <div class="presets">
+                <button class="chip" data-time="300">5분 휴식</button>
+                <button class="chip" data-time="900">15분 휴식</button>
+                <button class="chip active" data-time="1500">25분 집중</button>
+                <button class="chip" data-time="3000">50분 집중</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

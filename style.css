@@ -1,0 +1,140 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+    --primary-color: #e94560;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.timer-display {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-ring__circle {
+    stroke: var(--primary-color);
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 880;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+}
+
+.time {
+    position: absolute;
+    font-size: 4.5rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    font-family: var(--font-family);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.secondary {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.tertiary {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.presets {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    font-family: var(--font-family);
+}
+
+.chip:hover, .chip.active {
+    background: var(--primary-color);
+}
