@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>온라인 타이머</title>
+    <title>온라인 타이머 - 오늘의 집중</title>
+    <meta name="description" content="무료 온라인 뽀모도로 타이머. 집중력을 높이고 생산성을 관리하세요.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -16,10 +19,20 @@
             <p>목표를 향해 나아가는 시간입니다.</p>
         </header>
 
+        <!-- 연속 달성(Streak) 배너 -->
+        <div class="streak-banner" id="streak-banner">
+            <div class="streak-flame">🔥</div>
+            <div class="streak-info">
+                <span class="streak-count" id="streak-count">0</span>
+                <span class="streak-label">일 연속 집중!</span>
+            </div>
+        </div>
+
         <main>
             <div class="timer-display">
                 <svg class="progress-ring" width="300" height="300">
-                    <circle class="progress-ring__circle" stroke="white" stroke-width="12" fill="transparent" r="140" cx="150" cy="150"/>
+                    <circle class="progress-ring__circle" stroke="white" stroke-width="12" fill="transparent" r="140"
+                        cx="150" cy="150" />
                 </svg>
                 <div class="time" id="time-display">25:00</div>
             </div>
@@ -37,7 +50,67 @@
                 <button class="chip" data-time="3000">50분 집중</button>
             </div>
         </main>
+
+        <!-- 일일 통계 섹션 -->
+        <section class="stats-section" id="stats-section">
+            <h2 class="stats-title">📊 오늘의 기록</h2>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number" id="today-pomodoros">0</div>
+                    <div class="stat-label">완료한 뽀모도로</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="today-minutes">0</div>
+                    <div class="stat-label">집중한 분(분)</div>
+                </div>
+                <div class="stat-card highlight">
+                    <div class="stat-number" id="total-pomodoros">0</div>
+                    <div class="stat-label">누적 뽀모도로</div>
+                </div>
+            </div>
+
+            <!-- 주간 그래프 -->
+            <div class="weekly-chart">
+                <h3 class="chart-title">이번 주 집중 현황</h3>
+                <div class="chart-container" id="weekly-chart">
+                    <div class="chart-bar-wrapper" data-day="월">
+                        <div class="chart-bar" id="bar-0"><span class="bar-value">0</span></div>
+                        <span class="chart-day">월</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="화">
+                        <div class="chart-bar" id="bar-1"><span class="bar-value">0</span></div>
+                        <span class="chart-day">화</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="수">
+                        <div class="chart-bar" id="bar-2"><span class="bar-value">0</span></div>
+                        <span class="chart-day">수</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="목">
+                        <div class="chart-bar" id="bar-3"><span class="bar-value">0</span></div>
+                        <span class="chart-day">목</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="금">
+                        <div class="chart-bar" id="bar-4"><span class="bar-value">0</span></div>
+                        <span class="chart-day">금</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="토">
+                        <div class="chart-bar" id="bar-5"><span class="bar-value">0</span></div>
+                        <span class="chart-day">토</span>
+                    </div>
+                    <div class="chart-bar-wrapper" data-day="일">
+                        <div class="chart-bar" id="bar-6"><span class="bar-value">0</span></div>
+                        <span class="chart-day">일</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">꾸준함이 실력이 됩니다 💪</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
